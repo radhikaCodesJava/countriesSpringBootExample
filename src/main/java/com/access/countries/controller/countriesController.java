@@ -1,5 +1,36 @@
 package com.access.countries.controller;
 
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+//import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.access.countries.entity.countriesEntity;
+import com.access.countries.repo.countryRepository;
+
+
+@RestController
+@RequestMapping
 public class countriesController {
+	
+	@Autowired
+	countryRepository countryrepo;
+	
+	
+	
+	@GetMapping(value="/countries" ,produces = "application/json")
+	private ResponseEntity<?> getCountries() //throws ResourceNotFoundException   
+	{ 
+		System.out.println("in getall countries");
+		List<countriesEntity> listOfCountries =countryrepo.findAll();
+		return ResponseEntity.ok(listOfCountries); 
+		
+	}  
 
 }

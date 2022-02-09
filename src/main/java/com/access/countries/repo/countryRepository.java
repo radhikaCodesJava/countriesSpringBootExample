@@ -1,5 +1,11 @@
 package com.access.countries.repo;
 
-public class countryRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.access.countries.entity.countriesEntity;
+
+@Repository
+public interface countryRepository extends JpaRepository<countriesEntity, Integer >{
 
 }
