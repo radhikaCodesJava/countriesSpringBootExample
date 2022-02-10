@@ -1,6 +1,7 @@
 package com.access.countries.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -14,6 +15,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,6 +33,8 @@ import lombok.Setter;
 @Builder
 @Entity
 @Table(name="countries_table")
+@JsonIgnoreProperties(value={ "populationCnt","independenceDate"})
+
 public class countriesEntity implements Serializable{
 	
 	/**
@@ -37,8 +43,8 @@ public class countriesEntity implements Serializable{
 	private static final long serialVersionUID = 7072124321358258761L;
 
 	@Id
-	@GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "country_id_seq" )
-	@SequenceGenerator( name="countryseq", sequenceName = "countries_table_country_id_seq", allocationSize = 1)
+	@GeneratedValue (strategy = GenerationType.IDENTITY) //, generator = "country_id_seq" )
+	//@SequenceGenerator( name="countryseq", sequenceName = "countries_table_country_id_seq", allocationSize = 1)
 	@Column(name="country_id" ,nullable=false, unique=true, insertable=true, updatable=false)
 	@NonNull
     private Integer countryId;
@@ -70,9 +76,7 @@ public class countriesEntity implements Serializable{
 	@Column(name="captial_of_country")
 	private String countryCaptial;
 	
-	
-	
-	
-	
-	//private List<stateEntity> stateEntities;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "countryEntity" , targetEntity =stateEntity.class)
+	@JsonIgnore
+	private Collection<stateEntity> stateList;
 }

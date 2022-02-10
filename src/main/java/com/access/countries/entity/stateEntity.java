@@ -1,5 +1,7 @@
 package com.access.countries.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,10 +31,15 @@ import lombok.Setter;
 
 @Entity
 @Table(name="states_table")
-public class stateEntity {
+public class stateEntity implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "state_id_seq" )
-	@SequenceGenerator( name="stateseq", sequenceName = "states_table_state_id_seq", allocationSize = 1)
+	@SequenceGenerator( name="state_seq", sequenceName = "states_table_state_id_seq", allocationSize = 1)
 	@Column(name="state_id",nullable=false, unique=true, insertable=true, updatable=false)
 	@NonNull
 	private Integer stateId;
@@ -51,12 +60,9 @@ public class stateEntity {
 	@NonNull
 	private String capitalCity;
 	
-	//@Column(name="country_state_code")
-	//@NonNull
-	//private Integer countryStateCode;
-	
 	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-	@JoinColumn(name = "country_state_id", nullable = false, unique = true, insertable=true, updatable=false)
+	@JoinColumn(name = "country_state_id", nullable = false, unique = true, insertable=true, updatable=false, referencedColumnName = "country_id")
+	@JsonIgnore
 	private countriesEntity countryEntity;
 
 }
