@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.access.countries.entity.countriesEntity;
 import com.access.countries.model.countriesDTO;
 
-@Service
+
 public interface countryService {
 	    //get 
 		//public List<countriesDTO> getAllCountries() ; //throws ResourceNotFoundException;

@@ -24,11 +24,13 @@ public class countriesController {
 	
 	@Autowired
 	countryService countryService;
+	
 	@GetMapping(value="/countries" ,produces = "application/json")
 	private ResponseEntity<?> getCountries() //throws ResourceNotFoundException   
 	{ 
 		System.out.println("in getall countries");
 		List<countriesEntity> listOfCountries =countryService.getAllCountries();
+		//List<countriesEntity> listOfCountries =countryrepo.findAll();
 		return ResponseEntity.ok(listOfCountries); 
 		
 	}  

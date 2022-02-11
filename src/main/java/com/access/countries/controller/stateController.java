@@ -27,6 +27,7 @@ public class stateController {
 	{ 
 		System.out.println("in getAll States");
 		List<stateEntity> listOfStates =statesService.getAllStates();
+		//List<stateEntity> listOfStates = statesRepo.findAll();
 		return ResponseEntity.ok(listOfStates); 
 		
 	}  
