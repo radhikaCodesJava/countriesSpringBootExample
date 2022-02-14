@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.access.countries.entity.stateEntity;
+import com.access.countries.model.stateDTO;
 import com.access.countries.repo.stateRepository;
 import com.access.countries.service.stateService;
 
@@ -26,7 +27,7 @@ public class stateController {
 	private ResponseEntity<?> getStates() //throws ResourceNotFoundException   
 	{ 
 		System.out.println("in getAll States");
-		List<stateEntity> listOfStates =statesService.getAllStates();
+		List<stateDTO> listOfStates =statesService.getAllStates();
 		//List<stateEntity> listOfStates = statesRepo.findAll();
 		return ResponseEntity.ok(listOfStates); 
 		

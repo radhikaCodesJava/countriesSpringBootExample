@@ -30,7 +30,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+//@Builder
 @Entity
 @Table(name="countries_table")
 @JsonIgnoreProperties(value={ "populationCnt","independenceDate"})
@@ -76,7 +76,7 @@ public class countriesEntity implements Serializable{
 	@Column(name="captial_of_country")
 	private String countryCaptial;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "countryEntity" , targetEntity =stateEntity.class)
-	@JsonIgnore
-	private Collection<stateEntity> stateList;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "countryEntity" , targetEntity =stateEntity.class,cascade=CascadeType.ALL)
+	//@JsonIgnore
+	private List<stateEntity> stateList;
 }

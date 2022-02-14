@@ -2,13 +2,9 @@ package com.access.countries.model;
 
 import java.util.Collection;
 import java.util.Date;
-
-import javax.persistence.Column;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
+import java.util.List;
 
 import com.access.countries.entity.stateEntity;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,7 +16,7 @@ import lombok.NonNull;
 @AllArgsConstructor
 public class countriesDTO {
     @NonNull
-	private Integer countryId;
+	private Integer countryIdNum;
 	@NonNull
 	private String countryName;
 	@NonNull
@@ -36,4 +32,5 @@ public class countriesDTO {
 	
 	private String countryCaptial;
 	
+	private List<stateEntity> stateList;
 	}

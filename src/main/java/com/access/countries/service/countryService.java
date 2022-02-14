@@ -10,8 +10,8 @@ import com.access.countries.model.countriesDTO;
 
 public interface countryService {
 	    //get 
-		//public List<countriesDTO> getAllCountries() ; //throws ResourceNotFoundException;
-	public List<countriesEntity> getAllCountries();
+		public List<countriesDTO> getAllCountries() ; //throws ResourceNotFoundException;
+	//public List<countriesEntity> getAllCountries();
 		//get by id
 		//public countriesDTO getCountryById(Integer countryId);// throws ResourceNotFoundException;
 		//post or save new country

@@ -17,14 +17,16 @@ public class countryServiceImpl implements countryService {
 	
 	@Autowired
 	countryRepository countryRepo;
+	@Autowired
+	countryMapper countryMap;
 	
 	       //get 
-			//public List<countriesDTO> getAllCountries()  //throws ResourceNotFoundException;
-			public List<countriesEntity> getAllCountries()
+			public List<countriesDTO> getAllCountries()  //throws ResourceNotFoundException;
+			//public List<countriesEntity> getAllCountries()
 	         {
 					List<countriesEntity> countriesEntityList= countryRepo.findAll();
-					//return countryMapper.toCountriesDTOList(countriesEntityList);
-					return countriesEntityList;
+					return countryMap.toCountryDTOList(countriesEntityList);
+					//return countriesEntityList;
 					
 				
 				

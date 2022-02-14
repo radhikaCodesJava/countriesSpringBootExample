@@ -1,16 +1,15 @@
 package com.access.countries.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
-import com.access.countries.entity.countriesEntity;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.sql.Timestamp;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class stateDTO {
     @NonNull
 	private Integer stateId;
@@ -28,5 +27,5 @@ public class stateDTO {
 	
 	private String capitalCity;
 	
-	
+	private Integer country_stateId;
 }

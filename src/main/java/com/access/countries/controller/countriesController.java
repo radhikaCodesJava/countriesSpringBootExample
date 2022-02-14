@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.access.countries.entity.countriesEntity;
+import com.access.countries.model.countriesDTO;
 import com.access.countries.repo.countryRepository;
 import com.access.countries.service.countryService;
 
@@ -29,7 +30,7 @@ public class countriesController {
 	private ResponseEntity<?> getCountries() //throws ResourceNotFoundException   
 	{ 
 		System.out.println("in getall countries");
-		List<countriesEntity> listOfCountries =countryService.getAllCountries();
+		List<countriesDTO> listOfCountries =countryService.getAllCountries();
 		//List<countriesEntity> listOfCountries =countryrepo.findAll();
 		return ResponseEntity.ok(listOfCountries); 
 		

@@ -27,7 +27,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+//@Builder
 
 @Entity
 @Table(name="states_table")
@@ -63,6 +63,7 @@ public class stateEntity implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	@JoinColumn(name = "country_state_id", nullable = false, unique = true, insertable=true, updatable=false, referencedColumnName = "country_id")
 	@JsonIgnore
+	@javax.persistence.Embedded
 	private countriesEntity countryEntity;
 
 }
