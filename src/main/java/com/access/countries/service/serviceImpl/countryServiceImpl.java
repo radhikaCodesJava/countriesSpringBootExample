@@ -22,15 +22,11 @@ public class countryServiceImpl implements countryService {
 	
 	       //get 
 			public List<countriesDTO> getAllCountries()  //throws ResourceNotFoundException;
-			//public List<countriesEntity> getAllCountries()
-	         {
+			   {
 					List<countriesEntity> countriesEntityList= countryRepo.findAll();
 					return countryMap.toCountryDTOList(countriesEntityList);
-					//return countriesEntityList;
-					
-				
-				
-			}
+				}
+			
 			//get by id
 			//public countriesDTO getCountryById(Integer countryId)// throws ResourceNotFoundException;
 			{

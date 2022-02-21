@@ -43,7 +43,7 @@ public class countriesEntity implements Serializable{
 	private static final long serialVersionUID = 7072124321358258761L;
 
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY) //, generator = "country_id_seq" )
+	@GeneratedValue (strategy = GenerationType.IDENTITY) //, generator = "countryseq" )
 	//@SequenceGenerator( name="countryseq", sequenceName = "countries_table_country_id_seq", allocationSize = 1)
 	@Column(name="country_id" ,nullable=false, unique=true, insertable=true, updatable=false)
 	@NonNull
@@ -76,7 +76,7 @@ public class countriesEntity implements Serializable{
 	@Column(name="captial_of_country")
 	private String countryCaptial;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "countryEntity" , targetEntity =stateEntity.class,cascade=CascadeType.ALL)
+	@OneToMany(mappedBy = "countryEntity" , targetEntity =stateEntity.class)//,fetch = FetchType.LAZY,cascade=CascadeType.ALL)
 	//@JsonIgnore
 	private List<stateEntity> stateList;
 }

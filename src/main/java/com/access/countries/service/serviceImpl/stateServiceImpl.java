@@ -20,14 +20,11 @@ public class stateServiceImpl implements stateService {
 	@Autowired
 	stateMapper stateMap;
 
-	//public List<stateDTO> getAllStates()  //throws ResourceNotFoundException;
-	public List<stateDTO> getAllStates()
+	  
+	public List<stateDTO> getAllStates()//throws ResourceNotFoundException;
 	{
 			List<stateEntity> stateEntityList= sateRepo.findAll();
 			return stateMap.toStateDTOList(stateEntityList);
-			//return stateEntityList;
-			
-		
-		
 	}
+	
 }

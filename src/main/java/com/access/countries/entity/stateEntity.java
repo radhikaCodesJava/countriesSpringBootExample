@@ -39,7 +39,7 @@ public class stateEntity implements Serializable {
 
 	@Id
 	@GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "state_id_seq" )
-	@SequenceGenerator( name="state_seq", sequenceName = "states_table_state_id_seq", allocationSize = 1)
+	@SequenceGenerator( name="state_id_seq", sequenceName = "states_table_state_id_seq", allocationSize = 1)
 	@Column(name="state_id",nullable=false, unique=true, insertable=true, updatable=false)
 	@NonNull
 	private Integer stateId;
@@ -60,7 +60,7 @@ public class stateEntity implements Serializable {
 	@NonNull
 	private String capitalCity;
 	
-	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	@ManyToOne//(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	@JoinColumn(name = "country_state_id", nullable = false, unique = true, insertable=true, updatable=false, referencedColumnName = "country_id")
 	@JsonIgnore
 	@javax.persistence.Embedded

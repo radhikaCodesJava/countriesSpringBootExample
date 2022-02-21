@@ -31,7 +31,7 @@ public class countriesController {
 	{ 
 		System.out.println("in getall countries");
 		List<countriesDTO> listOfCountries =countryService.getAllCountries();
-		//List<countriesEntity> listOfCountries =countryrepo.findAll();
+		
 		return ResponseEntity.ok(listOfCountries); 
 		
 	}  
