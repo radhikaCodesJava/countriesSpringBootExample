@@ -2,6 +2,7 @@ package com.access.countries.util;
 
 import java.util.List;
 
+import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
@@ -15,9 +16,10 @@ public interface stateMapper {
 
 stateMapper INSTANCE = Mappers.getMapper(stateMapper.class);
 
-@Mapping(target="country_stateId", source="countryEntity.countryId")
+@Mapping(target="user_stateId", source="stateEntity.stateId")
 	stateDTO toStateDTO(stateEntity savedEntity);
 		
+@InheritInverseConfiguration
 		stateEntity toStateEntity(stateDTO progDTO);
 		 
 	   	List<stateDTO> toStateDTOList(List<stateEntity> stateEntities);

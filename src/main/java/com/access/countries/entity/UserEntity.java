@@ -5,6 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 @Data
@@ -23,8 +27,15 @@ public class UserEntity {
 	@Column(name="password")
 	private String password;
 	
-	@Column(name="user_state_id")
-	private Integer user_state_id;
+	
+	//@Column(name="user_state_id")
+	//private Integer user_state_id;
+	
+	@ManyToOne
+	@JoinColumn(name = "user_state_id", nullable = false)//, unique = true, insertable=true, updatable=false, referencedColumnName = "country_id")
+	//@JsonIgnore
+	@javax.persistence.Embedded
+	private stateEntity statesEntity;
 	
 
 }
