@@ -37,5 +37,7 @@ public class UserEntity {
 	@javax.persistence.Embedded
 	private stateEntity statesEntity;
 	
-
+//cart table one to one
+//user table - every user has one address -one to one- members in family has same address. so dont make address unique.
+	//
 }
