@@ -1,6 +1,5 @@
 package com.access.countries.util;
 
-import com.access.countries.entity.countriesEntity;
 import com.access.countries.entity.stateEntity;
 import com.access.countries.model.stateDTO;
 import java.util.ArrayList;
@@ -10,8 +9,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-02-14T12:04:10-0800",
-    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 15.0.2 (Oracle Corporation)"
+    date = "2022-04-05T00:04:09-0700",
+    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 11.0.13 (Oracle Corporation)"
 )
 @Component
 public class stateMapperImpl implements stateMapper {
@@ -24,7 +23,6 @@ public class stateMapperImpl implements stateMapper {
 
         stateDTO stateDTO = new stateDTO();
 
-        stateDTO.setCountry_stateId( savedEntityCountryEntityCountryId( savedEntity ) );
         stateDTO.setStateId( savedEntity.getStateId() );
         stateDTO.setStateName( savedEntity.getStateName() );
         stateDTO.setNumCities( savedEntity.getNumCities() );
@@ -35,18 +33,18 @@ public class stateMapperImpl implements stateMapper {
     }
 
     @Override
-    public stateEntity toStateEntity(stateDTO progDTO) {
-        if ( progDTO == null ) {
+    public stateEntity toStateEntity(stateDTO stateDTO) {
+        if ( stateDTO == null ) {
             return null;
         }
 
         stateEntity stateEntity = new stateEntity();
 
-        stateEntity.setStateId( progDTO.getStateId() );
-        stateEntity.setStateName( progDTO.getStateName() );
-        stateEntity.setNumCities( progDTO.getNumCities() );
-        stateEntity.setLangSpoken( progDTO.getLangSpoken() );
-        stateEntity.setCapitalCity( progDTO.getCapitalCity() );
+        stateEntity.setStateId( stateDTO.getStateId() );
+        stateEntity.setStateName( stateDTO.getStateName() );
+        stateEntity.setNumCities( stateDTO.getNumCities() );
+        stateEntity.setLangSpoken( stateDTO.getLangSpoken() );
+        stateEntity.setCapitalCity( stateDTO.getCapitalCity() );
 
         return stateEntity;
     }
@@ -77,20 +75,5 @@ public class stateMapperImpl implements stateMapper {
         }
 
         return list;
-    }
-
-    private Integer savedEntityCountryEntityCountryId(stateEntity stateEntity) {
-        if ( stateEntity == null ) {
-            return null;
-        }
-        countriesEntity countryEntity = stateEntity.getCountryEntity();
-        if ( countryEntity == null ) {
-            return null;
-        }
-        Integer countryId = countryEntity.getCountryId();
-        if ( countryId == null ) {
-            return null;
-        }
-        return countryId;
     }
 }

@@ -20,8 +20,8 @@ import com.access.countries.service.countryService;
 @RequestMapping
 public class countriesController {
 	
-	@Autowired
-	countryRepository countryrepo;
+	//@Autowired
+	//countryRepository countryrepo;
 	
 	@Autowired
 	countryService countryService;

@@ -9,14 +9,12 @@ import org.springframework.stereotype.Service;
 import com.access.countries.entity.UserEntity;
 import com.access.countries.model.UserDTO;
 import com.access.countries.repo.userRepository;
-
+import com.access.countries.service.UserService;
 import com.access.countries.util.UserMapper;
 
 @Service
-public class UserServiceImpl {
+public class UserServiceImpl implements UserService{
 	
-	
-		
 	@Autowired
 	userRepository userRepo;
 	

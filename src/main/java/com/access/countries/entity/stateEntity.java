@@ -67,7 +67,7 @@ public class stateEntity implements Serializable {
 	@JoinColumn(name = "country_state_id", nullable = false, unique = true, insertable=true, updatable=false, referencedColumnName = "country_id")
 	@JsonIgnore
 	@javax.persistence.Embedded
-	private countriesEntity countryEntity;
+	private countriesEntity stateCountryEntity;
 	
 	@OneToMany(targetEntity = UserEntity.class, mappedBy="statesEntity")
 	@JsonIgnore

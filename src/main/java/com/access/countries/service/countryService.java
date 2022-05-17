@@ -8,7 +8,7 @@ import com.access.countries.entity.countriesEntity;
 import com.access.countries.model.countriesDTO;
 
 
-public interface countryService {
+public interface countryService  {
 	    //get 
 		public List<countriesDTO> getAllCountries() ; //throws ResourceNotFoundException;
 	//public List<countriesEntity> getAllCountries();

@@ -17,8 +17,8 @@ import com.access.countries.service.stateService;
 @RestController
 @RequestMapping
 public class stateController {
-	@Autowired
-	stateRepository statesRepo;
+	//@Autowired
+	//stateRepository statesRepo;
 	
 	@Autowired
 	stateService statesService;
