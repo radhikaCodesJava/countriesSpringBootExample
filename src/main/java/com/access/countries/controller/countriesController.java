@@ -15,25 +15,24 @@ import com.access.countries.model.countriesDTO;
 import com.access.countries.repo.countryRepository;
 import com.access.countries.service.countryService;
 
-
 @RestController
 @RequestMapping
 public class countriesController {
-	
-	//@Autowired
-	//countryRepository countryrepo;
-	
+
+	// @Autowired
+	// countryRepository countryrepo;
+
 	@Autowired
 	countryService countryService;
-	
-	@GetMapping(value="/countries" ,produces = "application/json")
-	private ResponseEntity<?> getCountries() //throws ResourceNotFoundException   
-	{ 
+
+	@GetMapping(value = "/countries", produces = "application/json")
+	private ResponseEntity<?> getCountries() // throws ResourceNotFoundException
+	{
 		System.out.println("in getall countries");
-		List<countriesDTO> listOfCountries =countryService.getAllCountries();
-		
-		return ResponseEntity.ok(listOfCountries); 
-		
-	}  
+		List<countriesDTO> listOfCountries = countryService.getAllCountries();
+
+		return ResponseEntity.ok(listOfCountries);
+
+	}
 
 }
